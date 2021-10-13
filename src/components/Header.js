@@ -4,8 +4,9 @@ import React from "react";
 import { BsBellFill } from "react-icons/bs";
 import { AiFillMessage } from "react-icons/ai";
 import { FaSearch, FaChevronDown } from "react-icons/fa";
+import Search from "./Search";
 
-function Header() {
+function Header({ pins, setPins }) {
   const iconSize = 24;
 
   return (
@@ -13,7 +14,7 @@ function Header() {
       <div className="header-container__btn">
         <a href="#">
           <svg
-            class="pinterest-logo"
+            className="pinterest-logo"
             height={iconSize}
             width={iconSize}
             viewBox="0 0 24 24"
@@ -37,14 +38,7 @@ function Header() {
         </a>
       </div>
 
-      <div className="header-container__search">
-        <FaSearch
-          className="header-container__search__icon"
-          size={16}
-          color="#767676"
-        />
-        <input type="text" placeholder="Rechercher" />
-      </div>
+      <Search className="header-container__search" setPins={setPins} />
 
       <div className="header-container__btn">
         <a href="#">

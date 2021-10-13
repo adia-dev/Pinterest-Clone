@@ -1,0 +1,103 @@
+.pin-container {
+  position: relative;
+}
+
+.pin {
+  text-decoration: none;
+  position: relative;
+  height: auto;
+}
+
+.pin-image {
+  border-radius: 25px;
+  margin: 0.25rem;
+  max-width: 275px;
+
+  cursor: zoom-in;
+
+  background-color: salmon;
+}
+
+.pin-image--hover {
+  filter: brightness(0.6);
+}
+
+.pin-library {
+  left: 15px;
+  top: 28px;
+  width: 40%;
+
+  cursor: pointer;
+}
+
+.pin-save {
+  right: 10px;
+  top: 15px;
+
+  padding: 0.75rem 1rem;
+  background-color: #e60023;
+  cursor: pointer;
+  border-radius: 45px;
+}
+
+.pin-save:hover {
+  background-color: #ad081b;
+}
+
+.pin-cta {
+  color: white;
+
+  font-size: 0.9rem;
+  font-weight: 600;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+
+  position: absolute;
+}
+
+.pin-name {
+  padding: 0 1rem;
+  width: 225px;
+  font-size: 0.9rem;
+  position: absolute;
+  cursor: pointer;
+}
+
+.pin-send {
+  right: 22%;
+  bottom: 20px;
+
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+
+  padding: 0.3rem;
+
+  cursor: pointer;
+  background-color: #cfcfcf;
+  border-radius: 45px;
+}
+
+.pin-more {
+  right: 5%;
+  bottom: 20px;
+
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+
+  padding: 0.3rem;
+
+  cursor: pointer;
+  background-color: #cfcfcf;
+  border-radius: 45px;
+}
+
+.pin-send:hover,
+.pin-more:hover {
+  filter: brightness(1.25);
+}
