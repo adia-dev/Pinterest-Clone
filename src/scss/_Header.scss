@@ -3,15 +3,29 @@
   align-items: center;
   justify-content: space-around;
   padding: 0.25rem 1rem;
-  margin: 0.3rem 0;
+  margin: 0.85rem 0;
 
   font-size: 0.5rem;
   color: black;
   height: 60px;
+
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background-color: white;
 }
 
 .pinterest-logo {
   fill: #e60023;
+}
+
+.header-container__background {
+  position: fixed;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.226);
+  height: 100vh;
+  width: 100vw;
+  z-index: 2;
 }
 
 .header-container a {
@@ -59,8 +73,19 @@
 }
 
 .header-container__profile-picture {
-  height: 32px;
-  width: 32px;
+  height: 36px;
+  width: 36px;
   object-fit: contain;
   border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.header-container__profile-picture--active {
+  border: 2px solid black;
+  padding: 0.15rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

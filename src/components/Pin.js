@@ -5,6 +5,7 @@ import { BsThreeDots } from "react-icons/bs";
 import { RiShareForward2Fill } from "react-icons/ri";
 
 import { useState } from "react/cjs/react.development";
+import { Link } from "react-router-dom";
 
 function Pin({ imageURL, suggestedLibrary, name }) {
   const [showCtas, setShowCtas] = useState(false);
@@ -30,13 +31,13 @@ function Pin({ imageURL, suggestedLibrary, name }) {
       onMouseLeave={onMouseLeave}
       onMouseEnter={onMouseEnter}
     >
-      <a className="pin" href="#">
+      <Link to="/" className="pin" href="#">
         <img
           className={`pin-image ${showCtas && "pin-image--hover"}`}
           src={imageURL}
           alt=""
         />
-      </a>
+      </Link>
       <h3 className="pin-name">{name ? shrinkText(name, 36) : ""}</h3>
 
       {showCtas && (

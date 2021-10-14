@@ -10,7 +10,12 @@ button {
   font-family: "Poppins", sans-serif;
 }
 
+.app-container {
+  width: 100%;
+}
+
 @import "./Header";
 @import "./Feed";
 @import "./Pin";
 @import "./Search";
+@import "./Profile";
