@@ -2,6 +2,11 @@
   padding: 0.85rem;
 }
 
+.profile-container a {
+  color: inherit;
+  text-decoration: none;
+}
+
 .profile-container__infos {
   display: flex;
   flex-direction: column;

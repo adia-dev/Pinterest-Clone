@@ -9,7 +9,7 @@ import { GiPadlock } from "react-icons/gi";
 import { Link } from "react-router-dom";
 
 function Profile({ pins, setPins }) {
-  const { uid, section } = useParams();
+  const { username } = useParams();
   const [showEdit, setShowEdit] = useState(false);
 
   const iconSize = 28;
@@ -22,7 +22,8 @@ function Profile({ pins, setPins }) {
           src="https://i0.wp.com/64.media.tumblr.com/c87de732d3923a195eb01bfd04e3f1b9/4b477156d7901c26-fc/s1280x1920/e9e320e1009b25c4f751b39e6ea5d45f367cde46.png"
         />
         <div className="profile-container__infos__name">
-          <h1>🦆𝕭𝖊𝖑𝖟𝖊𝕭𝖚𝖇𝖚🦆 - 🐱‍👤 ™</h1>
+          {/* <h1>🦆𝕭𝖊𝖑𝖟𝖊𝕭𝖚𝖇𝖚🦆 - 🐱‍👤 ™</h1> */}
+          <h1>🦆{username}🦆 - 🐱‍👤 ™</h1>
         </div>
         <div className="profile-container__infos__link">
           <a href="https://plus.google.com/113336444914058368441">
@@ -66,7 +67,7 @@ function Profile({ pins, setPins }) {
       </div>
 
       <div className="profile-container__libraries">
-        <Link to="/library/1" className="profile-container__library">
+        <Link to="/library/Creatures" className="profile-container__library">
           <div className="profile-container__library__pin">
             <div className="profile-container__library__private">
               <GiPadlock size={18} />
@@ -77,14 +78,14 @@ function Profile({ pins, setPins }) {
               </div>
             )}
             <img
-              src="https://i0.wp.com/64.media.tumblr.com/c87de732d3923a195eb01bfd04e3f1b9/4b477156d7901c26-fc/s1280x1920/e9e320e1009b25c4f751b39e6ea5d45f367cde46.png"
+              src="https://i.pinimg.com/236x/65/d5/17/65d51799a0be30e4da78295ec224b22e.jpg"
               alt=""
             />
           </div>
-          <h3>Anatomy</h3>
-          <p>57 Épingles</p>
+          <h3>Creatures</h3>
+          <p>5 Épingles</p>
         </Link>
-        <div className="profile-container__library">
+        <Link to="/library/Mangas" className="profile-container__library">
           <div className="profile-container__library__pin">
             <div className="profile-container__library__private">
               <GiPadlock size={18} />
@@ -97,22 +98,22 @@ function Profile({ pins, setPins }) {
               alt=""
             />
           </div>
-          <h3>Anatomy</h3>
-          <p>57 Épingles</p>
-        </div>
-        <div className="profile-container__library">
+          <h3>Mangas</h3>
+          <p>7 Épingles</p>
+        </Link>
+        <Link to="/library/Anatomy" className="profile-container__library">
           <div className="profile-container__library__pin">
             <div className="profile-container__library__edit">
               <RiPencilFill size={18} />
             </div>
             <img
-              src="https://data.whicdn.com/images/352850024/original.jpg"
+              src="https://i.pinimg.com/236x/ca/91/94/ca9194b907b9a3dc8cb5ac57d30f5af3.jpg"
               alt=""
             />
           </div>
           <h3>Anatomy</h3>
-          <p>57 Épingles</p>
-        </div>
+          <p>2 Épingles</p>
+        </Link>
       </div>
     </div>
   );

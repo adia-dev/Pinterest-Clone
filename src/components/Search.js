@@ -5,13 +5,14 @@ import { FaSearch } from "react-icons/fa";
 import { AiFillCloseCircle } from "react-icons/ai";
 import { BsFillTagFill, BsFillLightbulbFill } from "react-icons/bs";
 import { useState } from "react/cjs/react.development";
-import { useLocation } from "react-router";
+import { useHistory, useLocation } from "react-router";
 
 import cachedPins from "../data/CachedPins.json";
 
 function Search({ setPins }) {
   const [showSuggestions, setShowSuggestions] = useState(false);
   const location = useLocation();
+  const history = useHistory();
 
   useEffect(() => {
     if (location.pathname === "/") {
@@ -21,6 +22,7 @@ function Search({ setPins }) {
 
   const onSearchBarKeyDown = (e) => {
     if (e.key === "Enter" && e.target.value.length > 0) {
+      history.push("/");
       search(e.target.value).then((response) => {
         const pins = response.map((r, i) => ({
           id: i,

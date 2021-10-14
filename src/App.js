@@ -23,11 +23,11 @@ function App() {
             <Home pins={pins} setPins={setPins} />
           </Route>
 
-          <Route path="/:uid/:section">
+          <Route path="/profile/:username">
             <Profile pins={pins} setPins={setPins} />
           </Route>
 
-          <Route path="/library/:id">
+          <Route path="/library/:name">
             <Library />
           </Route>
         </Switch>
