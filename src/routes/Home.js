@@ -1,11 +1,12 @@
 import React from "react";
 import Feed from "../components/Feed";
-import Header from "../components/Header";
+import FloatingActions from "../components/FloatingActions";
 
 function Home({ pins, setPins }) {
   return (
     <div>
       {/* <Header pins={pins} setPins={setPins} /> */}
+      <FloatingActions />
       <Feed pins={pins} />
     </div>
   );

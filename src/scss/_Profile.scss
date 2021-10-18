@@ -61,6 +61,39 @@
   top: 80px;
 }
 
+.profile-container__actions__row {
+  display: flex;
+  align-items: center;
+  align-self: center;
+  position: relative;
+}
+
+.profile-container__action__create {
+  position: absolute;
+  width: 225px;
+  left: -125px;
+  top: 35px;
+  padding: 1rem;
+  border-radius: 15px;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+}
+
+.profile-container__action__create p {
+  margin-bottom: 0.25rem;
+  padding: 0rem 0.45rem;
+}
+
+.profile-container__action__create__link {
+  padding: 0.65rem 0.45rem;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.profile-container__action__create__link:hover {
+  background-color: #ebebeb;
+}
+
 .profile-container__action {
   padding: 0 0.6rem;
   cursor: pointer;
@@ -80,12 +113,6 @@
   align-items: center;
 }
 
-.profile-container__actions__row {
-  display: flex;
-  align-items: center;
-  align-self: center;
-}
-
 .profile-container__libraries {
   display: flex;
   align-items: center;
@@ -93,36 +120,36 @@
   padding: 1rem;
 }
 
-.profile-container__library {
+.profile-container__board {
   margin: 1rem;
   cursor: pointer;
 }
 
-.profile-container__library__pin {
+.profile-container__board__pin {
   position: relative;
   z-index: 10;
 }
 
-.profile-container__library__pin:hover {
+.profile-container__board__pin:hover {
   filter: brightness(0.8);
 }
 
-.profile-container__library img {
+.profile-container__board img {
   width: 250px;
   height: 150px;
   object-fit: cover;
   border-radius: 35px;
 }
 
-.profile-container__library h3 {
+.profile-container__board h3 {
   font-size: 1.15rem;
 }
 
-.profile-container__library p {
+.profile-container__board p {
   font-size: 0.85rem;
 }
 
-.profile-container__library__private {
+.profile-container__board__private {
   position: absolute;
   z-index: 2;
   width: 35px;
@@ -138,11 +165,11 @@
   cursor: pointer;
 }
 
-.profile-container__library__private:hover {
+.profile-container__board__private:hover {
   background: #fff;
 }
 
-.profile-container__library__edit {
+.profile-container__board__edit {
   position: absolute;
   z-index: 2;
   width: 35px;
@@ -158,6 +185,6 @@
   cursor: pointer;
 }
 
-.profile-container__library__edit:hover {
+.profile-container__board__edit:hover {
   background: #fff;
 }

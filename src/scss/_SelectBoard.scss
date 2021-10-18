@@ -1,0 +1,128 @@
+.sl-container {
+  width: 40vw;
+  height: 90vh;
+  z-index: 1;
+  background-color: white;
+  position: absolute;
+  top: 8%;
+  left: 30%;
+  padding: 1.5rem;
+
+  border-radius: 35px;
+  z-index: 12;
+}
+
+.sl-container__background {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.487);
+  top: 0;
+  left: 0;
+  z-index: 11;
+}
+
+.sl-container__header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.25rem;
+}
+
+.sl-container__content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  height: 90%;
+}
+
+.sl-container__content__media {
+  margin-top: 8rem;
+}
+
+.sl-container__content__media img {
+  border-radius: 15px;
+  width: 225px;
+}
+
+.sl-container__content__libraries {
+  overflow-y: scroll;
+}
+
+.sl-container__content__libraries__search {
+  display: flex;
+  align-items: center;
+  border: 3px solid #e6e6e6;
+  color: #767676;
+  padding: 0 1rem;
+  border-radius: 35px;
+  cursor: pointer;
+}
+
+.sl-container__content__libraries__search:hover {
+  border-color: #b3b3b3;
+}
+
+.sl-container__content__libraries__search input {
+  border: none;
+  outline: none;
+  margin-left: 1rem;
+  height: 45px;
+  width: 100%;
+  cursor: pointer;
+}
+
+.sl-container__content__libraries input::placeholder {
+  color: #cecece;
+}
+
+.sl-container__content__libraries__board {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.25rem 1rem;
+  border-radius: 9px;
+  cursor: pointer;
+  margin: 0.125rem;
+}
+
+.sl-container__content__libraries__board h4 {
+  flex: 1;
+}
+
+.sl-container__content__libraries__board:hover {
+  background-color: #f0f0f0;
+}
+
+.sl-container__content__libraries__board img {
+  height: 50px;
+  width: 50px;
+  padding: 0.25rem;
+  border-radius: 15px;
+  object-fit: contain;
+  margin-right: 1rem;
+}
+
+.sl-container__content__libraries__section {
+  margin-top: 1rem;
+  border-top: 1px solid #e6e6e6;
+}
+
+.sl-container__footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 0.5rem;
+  cursor: pointer;
+}
+
+.sl-container__footer__plus {
+  margin-right: 1rem;
+  height: 35px;
+  width: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #e60023;
+  color: white;
+  border-radius: 50%;
+}

@@ -1,21 +1,30 @@
-import React, { useState } from "react";
-import { useParams } from "react-router";
-import Header from "../components/Header";
-
-import { RiPencilFill, RiShareForward2Fill } from "react-icons/ri";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 import { CgOptions } from "react-icons/cg";
-import { TiPlus } from "react-icons/ti";
 import { GiPadlock } from "react-icons/gi";
+import { RiPencilFill, RiShareForward2Fill } from "react-icons/ri";
+import { TiPlus } from "react-icons/ti";
+import { useParams } from "react-router";
 import { Link } from "react-router-dom";
+import FloatingActions from "../components/FloatingActions";
 
 function Profile({ pins, setPins }) {
   const { username } = useParams();
   const [showEdit, setShowEdit] = useState(false);
+  const [libraries, setLibraries] = useState([]);
 
   const iconSize = 28;
 
+  useEffect(() => {
+    axios
+      .get("http://192.168.0.10:5000/board")
+      .then((res) => setLibraries(res.data))
+      .catch((err) => console.log("Error: " + err));
+  }, []);
+
   return (
     <div className="profile-container">
+      <FloatingActions />
       <div className="profile-container__infos">
         <img
           className="profile-container__infos__profile-picture"
@@ -63,17 +72,51 @@ function Profile({ pins, setPins }) {
           <div className="profile-container__action">
             <TiPlus size={iconSize} />
           </div>
+          <div className="profile-container__action__create">
+            <p>Créer</p>
+            <Link to="/pin-builder">
+              <div className="profile-container__action__create__link">
+                <h3>Épingle</h3>
+              </div>
+            </Link>
+            <Link to="/pin-builder">
+              <div className="profile-container__action__create__link">
+                <h3>Tableau</h3>
+              </div>
+            </Link>
+          </div>
         </div>
       </div>
 
       <div className="profile-container__libraries">
-        <Link to="/library/Creatures" className="profile-container__library">
-          <div className="profile-container__library__pin">
-            <div className="profile-container__library__private">
+        {libraries.map((board) => (
+          <Link
+            key={board.id}
+            to="/board/Creatures"
+            className="profile-container__board"
+          >
+            <div className="profile-container__board__pin">
+              <div className="profile-container__board__private">
+                <GiPadlock size={18} />
+              </div>
+              {showEdit && (
+                <div className="profile-container__board__edit">
+                  <RiPencilFill size={18} />
+                </div>
+              )}
+              <img src={board.thumbnail} alt="" />
+            </div>
+            <h3>{board.title}</h3>
+            <p>{board.pinCnt} Épingles</p>
+          </Link>
+        ))}
+        {/* <Link to="/board/Creatures" className="profile-container__board">
+          <div className="profile-container__board__pin">
+            <div className="profile-container__board__private">
               <GiPadlock size={18} />
             </div>
             {showEdit && (
-              <div className="profile-container__library__edit">
+              <div className="profile-container__board__edit">
                 <RiPencilFill size={18} />
               </div>
             )}
@@ -85,12 +128,12 @@ function Profile({ pins, setPins }) {
           <h3>Creatures</h3>
           <p>5 Épingles</p>
         </Link>
-        <Link to="/library/Mangas" className="profile-container__library">
-          <div className="profile-container__library__pin">
-            <div className="profile-container__library__private">
+        <Link to="/board/Mangas" className="profile-container__board">
+          <div className="profile-container__board__pin">
+            <div className="profile-container__board__private">
               <GiPadlock size={18} />
             </div>
-            <div className="profile-container__library__edit">
+            <div className="profile-container__board__edit">
               <RiPencilFill size={18} />
             </div>
             <img
@@ -101,9 +144,9 @@ function Profile({ pins, setPins }) {
           <h3>Mangas</h3>
           <p>7 Épingles</p>
         </Link>
-        <Link to="/library/Anatomy" className="profile-container__library">
-          <div className="profile-container__library__pin">
-            <div className="profile-container__library__edit">
+        <Link to="/board/Anatomy" className="profile-container__board">
+          <div className="profile-container__board__pin">
+            <div className="profile-container__board__edit">
               <RiPencilFill size={18} />
             </div>
             <img
@@ -113,7 +156,7 @@ function Profile({ pins, setPins }) {
           </div>
           <h3>Anatomy</h3>
           <p>2 Épingles</p>
-        </Link>
+        </Link> */}
       </div>
     </div>
   );

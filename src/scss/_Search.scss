@@ -143,13 +143,13 @@
   width: 75%;
 }
 
-.search-container__suggestions__library {
+.search-container__suggestions__board {
   margin: 0.25rem;
   position: relative;
   cursor: pointer;
 }
 
-.search-container__suggestions__library p {
+.search-container__suggestions__board p {
   position: absolute;
   color: white;
   font-weight: bold;
@@ -159,7 +159,7 @@
   text-align: center;
 }
 
-.search-container__suggestions__library img {
+.search-container__suggestions__board img {
   width: 200px;
   height: 75px;
   object-fit: cover;

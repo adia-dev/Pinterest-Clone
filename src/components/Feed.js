@@ -7,9 +7,10 @@ function Feed({ pins }) {
       {pins.map((pin) => (
         <Pin
           name={pin.name}
-          suggestedLibrary={"Manga..."}
+          suggestedBoard={"Manga..."}
           imageURL={pin.imageURL}
           id={pin.id}
+          key={pin.id}
         />
       ))}
     </div>

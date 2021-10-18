@@ -1,13 +1,10 @@
 import React, { useEffect } from "react";
-
-import Unsplash from "../utils/Unsplash";
-import { FaSearch } from "react-icons/fa";
 import { AiFillCloseCircle } from "react-icons/ai";
-import { BsFillTagFill, BsFillLightbulbFill } from "react-icons/bs";
-import { useState } from "react/cjs/react.development";
+import { BsFillLightbulbFill, BsFillTagFill } from "react-icons/bs";
+import { FaSearch } from "react-icons/fa";
 import { useHistory, useLocation } from "react-router";
-
-import cachedPins from "../data/CachedPins.json";
+import { useState } from "react/cjs/react.development";
+import Unsplash from "../utils/Unsplash";
 
 function Search({ setPins }) {
   const [showSuggestions, setShowSuggestions] = useState(false);
@@ -47,6 +44,7 @@ function Search({ setPins }) {
 
   async function search(query) {
     const request = await fetch(Unsplash.baseURL + query);
+    setShowSuggestions(false);
 
     if (request.ok) {
       const result = await request.json();
@@ -152,42 +150,42 @@ function Search({ setPins }) {
           </div>
 
           <div className="search-container__suggestions__libraries">
-            <div className="search-container__suggestions__library">
+            <div className="search-container__suggestions__board">
               <img
                 src="https://i.pinimg.com/originals/15/32/c5/1532c554a74eeabca8ca1847c46e9b08.jpg"
                 alt=""
               />
               <p>Nike néon</p>
             </div>
-            <div className="search-container__suggestions__library">
+            <div className="search-container__suggestions__board">
               <img
                 src="https://i.pinimg.com/originals/15/32/c5/1532c554a74eeabca8ca1847c46e9b08.jpg"
                 alt=""
               />
               <p>Nike néon</p>
             </div>
-            <div className="search-container__suggestions__library">
+            <div className="search-container__suggestions__board">
               <img
                 src="https://i.pinimg.com/originals/15/32/c5/1532c554a74eeabca8ca1847c46e9b08.jpg"
                 alt=""
               />
               <p>Nike néon</p>
             </div>
-            <div className="search-container__suggestions__library">
+            <div className="search-container__suggestions__board">
               <img
                 src="https://i.pinimg.com/originals/15/32/c5/1532c554a74eeabca8ca1847c46e9b08.jpg"
                 alt=""
               />
               <p>Nike néon</p>
             </div>
-            <div className="search-container__suggestions__library">
+            <div className="search-container__suggestions__board">
               <img
                 src="https://i.pinimg.com/originals/15/32/c5/1532c554a74eeabca8ca1847c46e9b08.jpg"
                 alt=""
               />
               <p>Nike néon</p>
             </div>
-            <div className="search-container__suggestions__library">
+            <div className="search-container__suggestions__board">
               <img
                 src="https://i.pinimg.com/originals/15/32/c5/1532c554a74eeabca8ca1847c46e9b08.jpg"
                 alt=""
@@ -202,42 +200,42 @@ function Search({ setPins }) {
           </div>
 
           <div className="search-container__suggestions__libraries">
-            <div className="search-container__suggestions__library">
+            <div className="search-container__suggestions__board">
               <img
                 src="https://i.pinimg.com/originals/15/32/c5/1532c554a74eeabca8ca1847c46e9b08.jpg"
                 alt=""
               />
               <p>Nike néon</p>
             </div>
-            <div className="search-container__suggestions__library">
+            <div className="search-container__suggestions__board">
               <img
                 src="https://i.pinimg.com/originals/15/32/c5/1532c554a74eeabca8ca1847c46e9b08.jpg"
                 alt=""
               />
               <p>Nike néon</p>
             </div>
-            <div className="search-container__suggestions__library">
+            <div className="search-container__suggestions__board">
               <img
                 src="https://i.pinimg.com/originals/15/32/c5/1532c554a74eeabca8ca1847c46e9b08.jpg"
                 alt=""
               />
               <p>Nike néon</p>
             </div>
-            <div className="search-container__suggestions__library">
+            <div className="search-container__suggestions__board">
               <img
                 src="https://i.pinimg.com/originals/15/32/c5/1532c554a74eeabca8ca1847c46e9b08.jpg"
                 alt=""
               />
               <p>Nike néon</p>
             </div>
-            <div className="search-container__suggestions__library">
+            <div className="search-container__suggestions__board">
               <img
                 src="https://i.pinimg.com/originals/15/32/c5/1532c554a74eeabca8ca1847c46e9b08.jpg"
                 alt=""
               />
               <p>Nike néon</p>
             </div>
-            <div className="search-container__suggestions__library">
+            <div className="search-container__suggestions__board">
               <img
                 src="https://i.pinimg.com/originals/15/32/c5/1532c554a74eeabca8ca1847c46e9b08.jpg"
                 alt=""
