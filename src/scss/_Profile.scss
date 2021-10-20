@@ -77,6 +77,8 @@
   border-radius: 15px;
   box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
   overflow: hidden;
+  z-index: 2;
+  background-color: white;
 }
 
 .profile-container__action__create p {
@@ -113,7 +115,7 @@
   align-items: center;
 }
 
-.profile-container__libraries {
+.profile-container__boards {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
@@ -187,4 +189,19 @@
 
 .profile-container__board__edit:hover {
   background: #fff;
+}
+
+.profile-container__board__empty {
+  width: 250px;
+  height: 150px;
+
+  background-color: #eeeeee;
+  color: #767676;
+  font-style: italic;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 35px;
 }

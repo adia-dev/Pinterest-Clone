@@ -1,13 +1,29 @@
 .pin-container {
-  max-width: 275px;
-  margin: 1rem 0.25rem;
+  padding: 0;
+  margin: 15px 10px;
+  border-radius: var(--card-boder-radius);
+  // background-color: red;
+  // overflow: hidden;
+}
+
+.pin-container-small {
+  grid-row-end: span var(--card-small);
+}
+
+.pin-container-medium {
+  grid-row-end: span var(--card-medium);
+}
+
+.pin-container-large {
+  grid-row-end: span var(--card-large);
 }
 
 .pin-container__body {
   position: relative;
+  height: 100%;
 }
 
-.pin {
+.pin-container__media {
   text-decoration: none;
   position: relative;
   height: auto;
@@ -15,12 +31,15 @@
 
 .pin-image {
   border-radius: 25px;
-  margin: 0.25rem;
+  // margin: 0.25rem;
   max-width: 275px;
 
   cursor: zoom-in;
-
-  background-color: salmon;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 25px;
+  max-width: 275px;
 }
 
 .pin-image--hover {

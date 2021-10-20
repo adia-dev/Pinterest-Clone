@@ -3,27 +3,31 @@ import axios from "axios";
 import { CgOptions } from "react-icons/cg";
 import { GiPadlock } from "react-icons/gi";
 import { RiPencilFill, RiShareForward2Fill } from "react-icons/ri";
-import { TiPlus } from "react-icons/ti";
+import { TiMinus, TiPlus } from "react-icons/ti";
 import { useParams } from "react-router";
 import { Link } from "react-router-dom";
 import FloatingActions from "../components/FloatingActions";
+import CreateBoard from "../components/CreateBoard";
 
-function Profile({ pins, setPins }) {
+function Profile({ boards, setBoards, pins, setPins }) {
   const { username } = useParams();
   const [showEdit, setShowEdit] = useState(false);
-  const [libraries, setLibraries] = useState([]);
-
+  const [createBoardOpen, setCreateBoardOpen] = useState(false);
+  const [plusActionOpen, setPlusActionOpen] = useState(false);
   const iconSize = 28;
 
-  useEffect(() => {
-    axios
-      .get("http://192.168.0.10:5000/board")
-      .then((res) => setLibraries(res.data))
-      .catch((err) => console.log("Error: " + err));
-  }, []);
+  const onClickCreateBoard = () => {
+    setCreateBoardOpen(true);
+    setPlusActionOpen(false);
+  };
+
+  console.log(boards);
 
   return (
     <div className="profile-container">
+      {createBoardOpen && (
+        <CreateBoard setCreateBoardOpen={setCreateBoardOpen} />
+      )}
       <FloatingActions />
       <div className="profile-container__infos">
         <img
@@ -69,45 +73,62 @@ function Profile({ pins, setPins }) {
           <div className="profile-container__action">
             <CgOptions size={iconSize} />
           </div>
-          <div className="profile-container__action">
-            <TiPlus size={iconSize} />
+          <div
+            onClick={() => setPlusActionOpen(!plusActionOpen)}
+            className="profile-container__action"
+          >
+            {plusActionOpen ? (
+              <TiMinus size={iconSize} />
+            ) : (
+              <TiPlus size={iconSize} />
+            )}
           </div>
-          <div className="profile-container__action__create">
-            <p>Créer</p>
-            <Link to="/pin-builder">
-              <div className="profile-container__action__create__link">
-                <h3>Épingle</h3>
+          {plusActionOpen && (
+            <div className="profile-container__action__create">
+              <p>Créer</p>
+              <Link to="/pin-builder">
+                <div className="profile-container__action__create__link">
+                  <h3>Épingle</h3>
+                </div>
+              </Link>
+              <div onClick={onClickCreateBoard}>
+                <div className="profile-container__action__create__link">
+                  <h3>Tableau</h3>
+                </div>
               </div>
-            </Link>
-            <Link to="/pin-builder">
-              <div className="profile-container__action__create__link">
-                <h3>Tableau</h3>
-              </div>
-            </Link>
-          </div>
+            </div>
+          )}
         </div>
       </div>
 
-      <div className="profile-container__libraries">
-        {libraries.map((board) => (
+      <div className="profile-container__boards">
+        {boards.map((board) => (
           <Link
-            key={board.id}
-            to="/board/Creatures"
+            key={board._id}
+            to={"/board/" + board._id}
             className="profile-container__board"
           >
             <div className="profile-container__board__pin">
-              <div className="profile-container__board__private">
-                <GiPadlock size={18} />
-              </div>
+              {board.secret && (
+                <div className="profile-container__board__private">
+                  <GiPadlock size={18} />
+                </div>
+              )}
               {showEdit && (
                 <div className="profile-container__board__edit">
                   <RiPencilFill size={18} />
                 </div>
               )}
-              <img src={board.thumbnail} alt="" />
+              {board.pins.length > 0 ? (
+                <img src={board.thumbnail} alt="" />
+              ) : (
+                <div className="profile-container__board__empty">
+                  <h3>Empty</h3>
+                </div>
+              )}
             </div>
             <h3>{board.title}</h3>
-            <p>{board.pinCnt} Épingles</p>
+            <p>{board.pins.length} Épingles</p>
           </Link>
         ))}
         {/* <Link to="/board/Creatures" className="profile-container__board">

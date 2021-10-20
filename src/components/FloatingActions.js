@@ -28,13 +28,15 @@ function FloatingActions() {
   );
 
   return (
-    <div className="fa-container">
-      {plusActionOpen && plusActionElem()}
-      <div className="fa-container__cta" onClick={onClickPlusAction}>
-        {plusActionOpen ? <TiMinus size={24} /> : <TiPlus size={24} />}
-      </div>
-      <div className="fa-container__cta">
-        <FaQuestion size={18} />
+    <div className="">
+      <div className="fa-container">
+        {plusActionOpen && plusActionElem()}
+        <div className="fa-container__cta" onClick={onClickPlusAction}>
+          {plusActionOpen ? <TiMinus size={24} /> : <TiPlus size={24} />}
+        </div>
+        <div className="fa-container__cta">
+          <FaQuestion size={18} />
+        </div>
       </div>
     </div>
   );

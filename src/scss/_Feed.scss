@@ -1,7 +1,32 @@
+// .feed-container {
+//   width: 95%;
+//   margin: auto;
+//   display: flex;
+//   align-items: flex-start;
+//   flex-wrap: wrap;
+// }
+
+:root {
+  --card-width: 250px;
+  --card-boder-radius: 16px;
+  --card-increment: 10px;
+  --card-small: 26;
+  --card-medium: 33;
+  --card-large: 45;
+}
+
 .feed-container {
-  width: 95%;
-  margin: auto;
-  display: flex;
-  align-items: flex-start;
-  flex-wrap: wrap;
+  margin: 0;
+  padding: 0;
+  width: 80vw;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+
+  display: grid;
+  grid-template-columns: repeat(auto-fill, var(--card-width));
+  grid-auto-rows: var(--card-increment);
+
+  justify-content: center;
+  z-index: 20;
 }

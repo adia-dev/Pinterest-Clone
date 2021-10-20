@@ -18,18 +18,18 @@ function SelectBoard({ closeSaveDialogBox }) {
               alt=""
             />
           </div>
-          <div className="sl-container__content__libraries">
-            <div className="sl-container__content__libraries__search">
+          <div className="sl-container__content__boards">
+            <div className="sl-container__content__boards__search">
               <FaSearch size={18} />
               <input type="text" name="board" placeholder="Rechercher" />
             </div>
 
-            <div className="sl-container__content__libraries__section">
+            <div className="sl-container__content__boards__section">
               <p>Tous les tableaux</p>
             </div>
 
             {[...Array(3)].map((_, i) => (
-              <div key={i} className="sl-container__content__libraries__board">
+              <div key={i} className="sl-container__content__boards__board">
                 <img
                   src="https://64.media.tumblr.com/04a332326f521c0049d5e00849319fff/992c3b8609b527e8-b4/s400x600/6a72ac7f3d15677f17049efcb9ad67bb8e65a3c8.png"
                   alt=""
@@ -40,11 +40,11 @@ function SelectBoard({ closeSaveDialogBox }) {
               </div>
             ))}
 
-            <div className="sl-container__content__libraries__section">
+            <div className="sl-container__content__boards__section">
               <p>Tous les tableaux</p>
             </div>
             {[...Array(7)].map((_, i) => (
-              <div key={i} className="sl-container__content__libraries__board">
+              <div key={i} className="sl-container__content__boards__board">
                 <img
                   src="https://64.media.tumblr.com/04a332326f521c0049d5e00849319fff/992c3b8609b527e8-b4/s400x600/6a72ac7f3d15677f17049efcb9ad67bb8e65a3c8.png"
                   alt=""

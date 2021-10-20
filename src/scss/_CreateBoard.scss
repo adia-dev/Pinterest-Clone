@@ -1,0 +1,124 @@
+.cb-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  min-width: 100vw;
+  height: 100vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 11;
+}
+
+.cb-container__background {
+  background-color: rgba(0, 0, 0, 0.7);
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 12;
+}
+
+.cb-container__body {
+  z-index: 13;
+  width: 28%;
+  height: 41%;
+  background-color: white;
+  border-radius: 35px;
+  padding: 2.5rem;
+
+  display: flex;
+  flex-direction: column;
+
+  position: relative;
+}
+
+.cb-container__body__header {
+  font-size: 1.25rem;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.cb-container__body__form {
+  display: flex;
+  flex-direction: column;
+}
+.cb-container__body__form label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-size: 0.85rem;
+}
+
+.cb-container__body__form__title {
+  padding: 0.85rem;
+  border-radius: 15px;
+  border: 2px solid #cecece;
+  outline: none;
+}
+
+.cb-container__body__form__title::placeholder {
+  color: #cecece;
+}
+
+.cb-container__body__form__row {
+  margin-top: 2.5rem;
+  display: flex;
+  align-items: center;
+}
+
+.cb-container__body__form__secret {
+  width: 20px;
+  height: 20px;
+  border-radius: 15px;
+  margin-right: 1rem;
+}
+
+.cb-container__body__form__row__label h3 {
+  font-size: 1rem;
+}
+
+.cb-container__body__form__row__label p {
+  color: #767676;
+}
+
+.cb-container__body__form__row__label h4 {
+  color: #767676;
+  cursor: pointer;
+}
+
+.cb-container__body__form__row__label h4:hover {
+  color: #555;
+  text-decoration: underline;
+}
+
+.cb-container__body__form__submit {
+  position: absolute;
+  padding: 0.85rem 1rem;
+  border-radius: 25px;
+  border: none;
+  outline: none;
+  bottom: 25px;
+  right: 45px;
+  font-size: 1rem;
+  font-weight: bold;
+  font-family: "Poppins", sans-serif;
+  cursor: not-allowed;
+  color: #767676;
+
+  transition: all 0.35s ease-out;
+}
+
+.cb-container__body__form__submit--enabled {
+  background-color: #e60023;
+  color: white;
+
+  cursor: pointer;
+}
+
+.cb-container__body__form__warning {
+  color: #e60023;
+  font-style: italic;
+  font-size: 0.85rem;
+}

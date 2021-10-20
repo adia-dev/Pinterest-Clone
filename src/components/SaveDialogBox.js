@@ -5,16 +5,7 @@ import { GiPadlock } from "react-icons/gi";
 import { TiPlus } from "react-icons/ti";
 import { Link } from "react-router-dom";
 
-function SaveDialogBox() {
-  const [libraries, setLibraries] = useState([]);
-
-  useEffect(() => {
-    axios
-      .get("http://192.168.0.10:5000/board")
-      .then((res) => setLibraries(res.data))
-      .catch((err) => console.log("Error: " + err));
-  }, []);
-
+function SaveDialogBox({ boards, setCurrentBoard }) {
   return (
     <div className="sdb-container">
       <div className="sdb-container__dialog">
@@ -38,7 +29,7 @@ function SaveDialogBox() {
           <div className="sdb-container__dialog__section__title">
             <p>Meilleurs choix</p>
           </div>
-          <div className="sdb-container__dialog__libraries">
+          <div className="sdb-container__dialog__boards">
             <div className="sdb-container__dialog__board">
               <img
                 src="https://64.media.tumblr.com/04a332326f521c0049d5e00849319fff/992c3b8609b527e8-b4/s400x600/6a72ac7f3d15677f17049efcb9ad67bb8e65a3c8.png"
@@ -51,17 +42,18 @@ function SaveDialogBox() {
           <div className="sdb-container__dialog__section__title">
             <p>Tous les tableaux</p>
           </div>
-          <div className="sdb-container__dialog__libraries">
-            {libraries.map((board) => (
-              <Link
-                to={`board/${board.title}`}
-                key={board.id}
+          <div className="sdb-container__dialog__boards">
+            {boards.map((board) => (
+              <div
+                to={`board/${board._id}`}
+                onClick={() => setCurrentBoard(board)}
+                key={board._id}
                 className="sdb-container__dialog__board"
               >
                 <img src={board.thumbnail} alt="" />
                 <h4>{board.title}</h4>
                 <GiPadlock size={20} />
-              </Link>
+              </div>
             ))}
           </div>
         </div>

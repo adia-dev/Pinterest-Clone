@@ -1,5 +1,5 @@
-//* Components
-import { useState } from "react/cjs/react.development";
+import axios from "axios";
+import { useState, useEffect } from "react/cjs/react.development";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 //* Styles
@@ -14,6 +14,18 @@ import PinBuilder from "./routes/PinBuilder";
 function App() {
   const [pins, setPins] = useState([]);
 
+  const [boards, setBoards] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get("http://192.168.0.10:5000/board")
+      .then((res) => {
+        setBoards(res.data);
+        console.log(res.data);
+      })
+      .catch((err) => console.log("Error: " + err));
+  }, []);
+
   console.log(window.location.href);
 
   return (
@@ -22,18 +34,28 @@ function App() {
         <Header pins={pins} setPins={setPins} />
         <Switch>
           <Route exact path="/">
-            <Home pins={pins} setPins={setPins} />
+            <Home
+              boards={boards}
+              setBoards={setBoards}
+              pins={pins}
+              setPins={setPins}
+            />
           </Route>
 
           <Route path="/profile/:username">
-            <Profile pins={pins} setPins={setPins} />
+            <Profile
+              boards={boards}
+              setBoards={setBoards}
+              pins={pins}
+              setPins={setPins}
+            />
           </Route>
 
-          <Route path="/board/:name">
-            <Board />
+          <Route path="/board/:id">
+            <Board boards={boards} setBoards={setBoards} />
           </Route>
 
-          <Route path="/pin">
+          <Route path="/pin/:id">
             <PinViewer />
           </Route>
 

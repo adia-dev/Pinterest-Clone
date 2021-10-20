@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 import { useParams } from "react-router";
 
 import { IoMdArrowRoundBack } from "react-icons/io";
@@ -11,6 +12,34 @@ import { Link } from "react-router-dom";
 import FloatingActions from "../components/FloatingActions";
 
 function PinViewer() {
+  const [pin, setPin] = useState({});
+  const { id } = useParams();
+
+  useEffect(() => {
+    axios
+      .get("http://192.168.0.10:5000/pin/" + id)
+      .then((res) => setPin(res.data))
+      .catch((err) => {
+        console.log("Could not find a pin in the database," + err);
+
+        axios
+          .get(
+            `https://api.unsplash.com/photos/${id}?client_id=XeebjodiB1uOubNRQiQ8wnq-sKfYTAHLSANlHsviJ7Y`
+          )
+          .then((response) => {
+            const pin = {
+              id: response.data.id,
+              title: response.data.description,
+              url: response.data.urls.regular,
+            };
+
+            setPin(pin);
+            console.log(pin);
+          })
+          .catch((err) => console.log("Error: " + err));
+      });
+  }, []);
+
   return (
     <div className="pv-container">
       <FloatingActions />
@@ -27,10 +56,7 @@ function PinViewer() {
             <MdImageSearch size={24} />
           </div>
           <div className="pv-container__main__content__media">
-            <img
-              src="https://i.pinimg.com/564x/af/62/3c/af623c6fa19db777836514ed963ff591.jpg"
-              alt=""
-            />
+            {/* <img src={pin.url} alt="" /> */}
           </div>
         </div>
         <div className="pv-container__main__infos">
@@ -44,7 +70,7 @@ function PinViewer() {
               </div>
             </div>
             <div className="pv-container__main__header__ctas">
-              <div className="pv-container__main__header__libraries">
+              <div className="pv-container__main__header__boards">
                 <h3>Art...</h3>
                 <FaChevronDown size={20} />
               </div>
@@ -57,10 +83,10 @@ function PinViewer() {
             <a href="#">reddit.com</a>
           </div>
           <div className="pv-container__main__title">
-            <h1>"Dark Empress of Death" Albedo😈💋[Overlord] (2250x4000)</h1>
+            <h1>{pin.title}</h1>
           </div>
           <div className="pv-container__main__description">
-            <p>Subreddit for Anime and anime-style wallpapers.</p>
+            <p>{pin.description}</p>
           </div>
           <div className="pv-container__main__comments">
             <div className="pv-container__main__comments__header">

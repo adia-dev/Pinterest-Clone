@@ -4,7 +4,10 @@ import { BsFillLightbulbFill, BsFillTagFill } from "react-icons/bs";
 import { FaSearch } from "react-icons/fa";
 import { useHistory, useLocation } from "react-router";
 import { useState } from "react/cjs/react.development";
+
 import Unsplash from "../utils/Unsplash";
+import Giphy from "../apis/giphy";
+import Pexels from "../apis/pexels";
 
 function Search({ setPins }) {
   const [showSuggestions, setShowSuggestions] = useState(false);
@@ -21,10 +24,12 @@ function Search({ setPins }) {
     if (e.key === "Enter" && e.target.value.length > 0) {
       history.push("/");
       search(e.target.value).then((response) => {
-        const pins = response.map((r, i) => ({
+        const pins = response.map((image, i) => ({
           id: i,
-          name: r.description,
-          imageURL: r.urls.regular,
+          width: image.width,
+          height: image.height,
+          name: image.description,
+          imageURL: image.urls.regular,
         }));
         setPins(pins);
       });
@@ -33,10 +38,12 @@ function Search({ setPins }) {
 
   const onGetDailyImages = () => {
     getDailyImages().then((response) => {
-      const pins = response.map((r, i) => ({
+      const pins = response.map((image, i) => ({
         id: i,
-        name: r.description,
-        imageURL: r.urls.regular,
+        width: image.width,
+        height: image.height,
+        name: image.description,
+        imageURL: image.urls.regular,
       }));
       setPins(pins);
     });
@@ -149,7 +156,7 @@ function Search({ setPins }) {
             <p>Des idées pour vous</p>
           </div>
 
-          <div className="search-container__suggestions__libraries">
+          <div className="search-container__suggestions__boards">
             <div className="search-container__suggestions__board">
               <img
                 src="https://i.pinimg.com/originals/15/32/c5/1532c554a74eeabca8ca1847c46e9b08.jpg"
@@ -199,7 +206,7 @@ function Search({ setPins }) {
             <p>Populaire sur Pinterest (Clone) </p>
           </div>
 
-          <div className="search-container__suggestions__libraries">
+          <div className="search-container__suggestions__boards">
             <div className="search-container__suggestions__board">
               <img
                 src="https://i.pinimg.com/originals/15/32/c5/1532c554a74eeabca8ca1847c46e9b08.jpg"

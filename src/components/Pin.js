@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useEffect } from "react";
+import axios from "axios";
 import { BsThreeDots } from "react-icons/bs";
 import { FaChevronDown } from "react-icons/fa";
 import { RiShareForward2Fill } from "react-icons/ri";
@@ -7,9 +8,12 @@ import { useState } from "react/cjs/react.development";
 import SaveDialogBox from "./SaveDialogBox";
 import SelectBoard from "./SelectBoard";
 
-function Pin({ imageURL, suggestedBoard, name, largeDialogBox }) {
+function Pin({ id, imageURL, name, largeDialogBox, boards, size }) {
   const [showCtas, setShowCtas] = useState(false);
   const [showSaveDialogBox, setShowSaveDialogBox] = useState(false);
+  const [currentBoard, setCurrentBoard] = useState(
+    boards.length > 0 ? boards[0] : {}
+  );
 
   const onPinHover = () => {
     setShowCtas(true);
@@ -30,8 +34,22 @@ function Pin({ imageURL, suggestedBoard, name, largeDialogBox }) {
     setShowCtas(false);
   };
 
+  async function savePin() {
+    const data = {
+      id: id,
+      title: name,
+      url: imageURL,
+      board: currentBoard,
+    };
+    await axios
+      .post("http://192.168.0.10:5000/pin/add", data)
+      .then((response) => console.log(response))
+      .catch((err) => console.log("Error: " + err));
+  }
+
   const onSavePin = () => {
     openSaveDialogBox();
+    savePin();
   };
 
   const shrinkText = (text, max) => {
@@ -45,17 +63,22 @@ function Pin({ imageURL, suggestedBoard, name, largeDialogBox }) {
     // <SelectBoard />*
 
     <div
-      className="pin-container"
+      className={"pin-container pin-container-" + size}
       onMouseLeave={onPinLeave}
       onMouseEnter={onPinHover}
     >
       {showSaveDialogBox && largeDialogBox && (
-        <SelectBoard closeSaveDialogBox={closeSaveDialogBox} />
+        <SelectBoard
+          setCurrentBoard={setCurrentBoard}
+          closeSaveDialogBox={closeSaveDialogBox}
+        />
       )}
       <div className="pin-container__body">
-        {showSaveDialogBox && !largeDialogBox && <SaveDialogBox />}
+        {showSaveDialogBox && !largeDialogBox && (
+          <SaveDialogBox boards={boards} setCurrentBoard={setCurrentBoard} />
+        )}
 
-        <Link to="/pin" className="pin" href="#">
+        <Link to={"/pin/" + id} className="pin-container__media" href="#">
           <img
             className={`pin-image ${showCtas && "pin-image--hover"}`}
             src={imageURL}
@@ -66,9 +89,9 @@ function Pin({ imageURL, suggestedBoard, name, largeDialogBox }) {
 
         {showCtas && (
           <div className="pin-ctas">
-            {suggestedBoard && (
+            {currentBoard && (
               <div onClick={openSaveDialogBox} className="pin-board pin-cta">
-                <p>{suggestedBoard}</p>
+                <p>{currentBoard.title}</p>
                 <FaChevronDown size={16} color="#fff" />
               </div>
             )}

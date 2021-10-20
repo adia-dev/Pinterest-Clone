@@ -15,7 +15,7 @@ function CreatePin() {
           <BsThreeDots size={24} />
         </div>
         <div className="cp-container__header__save">
-          <div className="cp-container__header__save__libraries">
+          <div className="cp-container__header__save__boards">
             <p>Fx</p>
             <FaChevronDown />
           </div>
