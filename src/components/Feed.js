@@ -2,7 +2,6 @@ import React from "react";
 import Pin from "./Pin";
 
 function Feed({ boards, setBoards, pins, setPins }) {
-  console.log(pins);
   return (
     <div className="feed-container">
       {pins.map((pin) => {

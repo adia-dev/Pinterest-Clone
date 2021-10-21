@@ -6,8 +6,6 @@ import { useHistory, useLocation } from "react-router";
 import { useState } from "react/cjs/react.development";
 
 import Unsplash from "../utils/Unsplash";
-import Giphy from "../apis/giphy";
-import Pexels from "../apis/pexels";
 
 function Search({ setPins }) {
   const [showSuggestions, setShowSuggestions] = useState(false);
@@ -25,7 +23,7 @@ function Search({ setPins }) {
       history.push("/");
       search(e.target.value).then((response) => {
         const pins = response.map((image, i) => ({
-          id: i,
+          id: image.id,
           width: image.width,
           height: image.height,
           name: image.description,
@@ -38,8 +36,8 @@ function Search({ setPins }) {
 
   const onGetDailyImages = () => {
     getDailyImages().then((response) => {
-      const pins = response.map((image, i) => ({
-        id: i,
+      const pins = response.map((image) => ({
+        id: image.id,
         width: image.width,
         height: image.height,
         name: image.description,

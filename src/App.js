@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 //* Styles
 import "./scss/App.scss";
 import Home from "./routes/Home";
+import UnAuthHome from "./routes/UnAuthHome";
 import Board from "./routes/Board";
 import Profile from "./routes/Profile";
 import Header from "./components/Header";
@@ -13,6 +14,7 @@ import PinBuilder from "./routes/PinBuilder";
 
 function App() {
   const [pins, setPins] = useState([]);
+  const [logged, setLogged] = useState(false);
 
   const [boards, setBoards] = useState([]);
 
@@ -31,15 +33,24 @@ function App() {
   return (
     <div className="app-container">
       <Router>
-        <Header pins={pins} setPins={setPins} />
+        {!logged && <Header pins={pins} setPins={setPins} />}
         <Switch>
           <Route exact path="/">
-            <Home
-              boards={boards}
-              setBoards={setBoards}
-              pins={pins}
-              setPins={setPins}
-            />
+            {!logged ? (
+              <Home
+                boards={boards}
+                setBoards={setBoards}
+                pins={pins}
+                setPins={setPins}
+              />
+            ) : (
+              <UnAuthHome
+                boards={boards}
+                setBoards={setBoards}
+                pins={pins}
+                setPins={setPins}
+              />
+            )}
           </Route>
 
           <Route path="/profile/:username">

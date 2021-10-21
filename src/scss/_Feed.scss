@@ -18,7 +18,7 @@
 .feed-container {
   margin: 0;
   padding: 0;
-  width: 80vw;
+  width: 98vw;
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
@@ -28,5 +28,4 @@
   grid-auto-rows: var(--card-increment);
 
   justify-content: center;
-  z-index: 20;
 }
