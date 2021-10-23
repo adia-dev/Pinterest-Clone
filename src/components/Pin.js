@@ -15,6 +15,10 @@ function Pin({ id, imageURL, name, largeDialogBox, boards, size }) {
     boards.length > 0 ? boards[0] : {}
   );
 
+  useEffect(() => {
+    if (boards.length > 0) currentBoard = boards[0];
+  }, []);
+
   const onPinHover = () => {
     setShowCtas(true);
   };

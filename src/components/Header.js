@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
+import { useLocation } from "react-router";
 
 //* Icons
 import { BsBellFill } from "react-icons/bs";
@@ -6,9 +7,26 @@ import { AiFillMessage } from "react-icons/ai";
 import { FaChevronDown } from "react-icons/fa";
 import Search from "./Search";
 import { Link } from "react-router-dom";
+import HeaderMenu from "./HeaderMenu";
+import HeaderInbox from "./HeaderInbox";
+import HeaderNotifications from "./HeaderNotifications";
 
 function Header({ pins, setPins }) {
   const iconSize = 24;
+
+  const location = useLocation();
+
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [inboxOpen, setInboxOpen] = useState(false);
+  const [notificationsOpen, setNotificationsOpen] = useState(false);
+
+  window.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") {
+      setMenuOpen(false);
+      setNotificationsOpen(false);
+      setInboxOpen(false);
+    }
+  });
 
   return (
     <div className="header-container">
@@ -28,7 +46,11 @@ function Header({ pins, setPins }) {
         </Link>
       </div>
 
-      <div className="header-container__link header-container__link--active">
+      <div
+        className={`header-container__link ${
+          location.pathname === "/" ? "header-container__link--active" : ""
+        }`}
+      >
         <a href="/">
           <h1>Acceuil</h1>
         </a>
@@ -42,13 +64,21 @@ function Header({ pins, setPins }) {
       <Search className="header-container__search" setPins={setPins} />
       {/* <div className="header-container__background"></div> */}
 
-      <div className="header-container__btn">
+      <div
+        onClick={() => setNotificationsOpen(!notificationsOpen)}
+        className="header-container__btn"
+      >
         <BsBellFill size={iconSize} color="#767676" />
       </div>
+      {notificationsOpen && <HeaderNotifications />}
 
-      <div className="header-container__btn">
+      <div
+        onClick={() => setInboxOpen(!inboxOpen)}
+        className="header-container__btn"
+      >
         <AiFillMessage size={iconSize} color="#767676" />
       </div>
+      {inboxOpen && <HeaderInbox />}
 
       <div className="header-container__btn">
         <a href="/profile/𝕭𝖊𝖑𝖟𝖊𝕭𝖚𝖇𝖚">
@@ -60,8 +90,12 @@ function Header({ pins, setPins }) {
         </a>
       </div>
 
-      <div className="header-container__btn header-container__btn--mini">
+      <div
+        onClick={() => setMenuOpen(!menuOpen)}
+        className="header-container__btn header-container__btn--mini"
+      >
         <FaChevronDown color="#767676" />
+        {menuOpen && <HeaderMenu />}
       </div>
     </div>
   );

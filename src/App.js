@@ -14,7 +14,7 @@ import PinBuilder from "./routes/PinBuilder";
 
 function App() {
   const [pins, setPins] = useState([]);
-  const [logged, setLogged] = useState(false);
+  const [logged, setLogged] = useState(true);
 
   const [boards, setBoards] = useState([]);
 

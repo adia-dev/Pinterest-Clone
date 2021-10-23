@@ -52,7 +52,7 @@ function SaveDialogBox({ boards, setCurrentBoard }) {
               >
                 <img src={board.thumbnail} alt="" />
                 <h4>{board.title}</h4>
-                <GiPadlock size={20} />
+                {board.secret && <GiPadlock size={20} />}
               </div>
             ))}
           </div>
