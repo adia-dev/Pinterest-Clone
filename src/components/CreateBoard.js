@@ -19,7 +19,7 @@ function CreateBoard({ setCreateBoardOpen }) {
 
     if (canSubmit) {
       axios
-        .get("http://192.168.0.10:5000/board/search/" + input)
+        .get("http://localhost:5000/board/search/" + input)
         .then((res) => {
           setUnavaiableName(res.data !== null);
         })
@@ -39,7 +39,7 @@ function CreateBoard({ setCreateBoardOpen }) {
     e.preventDefault();
     if (canSubmit && !unavaiableName) {
       axios
-        .post("http://192.168.0.10:5000/board/create", {
+        .post("http://localhost:5000/board/create", {
           title: title,
           secret: secret,
           thumbnail: "",

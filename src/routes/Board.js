@@ -18,7 +18,7 @@ function Board({ boards, setBoards }) {
 
   useEffect(() => {
     axios
-      .get("http://192.168.0.10:5000/board/pins/" + id)
+      .get("http://localhost:5000/board/pins/" + id)
       .then((res) => {
         setBoard(res.data.board);
         setPins(res.data.pins);

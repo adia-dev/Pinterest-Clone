@@ -20,7 +20,7 @@ function App() {
 
   useEffect(() => {
     axios
-      .get("http://192.168.0.10:5000/board")
+      .get("http://localhost:5000/board")
       .then((res) => {
         setBoards(res.data);
         console.log(res.data);
@@ -33,10 +33,10 @@ function App() {
   return (
     <div className="app-container">
       <Router>
-        {!logged && <Header pins={pins} setPins={setPins} />}
+        {logged && <Header pins={pins} setPins={setPins} />}
         <Switch>
           <Route exact path="/">
-            {!logged ? (
+            {logged ? (
               <Home
                 boards={boards}
                 setBoards={setBoards}

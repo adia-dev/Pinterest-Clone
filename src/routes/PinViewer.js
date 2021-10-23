@@ -17,7 +17,7 @@ function PinViewer() {
 
   useEffect(() => {
     axios
-      .get("http://192.168.0.10:5000/pin/" + id)
+      .get("http://localhost:5000/pin/" + id)
       .then((res) => setPin(res.data))
       .catch((err) => {
         console.log("Could not find a pin in the database," + err);

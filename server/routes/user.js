@@ -14,7 +14,11 @@ router.route("/:id").delete((req, res) => {
     .catch((err) => res.status(400).json("Error: " + err));
 });
 
-router.route("/add").post((req, res) => {
+router.route("/test").get((req, res) => {
+  res.json("eeh");
+});
+
+router.route("/create").post((req, res) => {
   const newUser = new User();
 
   newUser.username = req.body.username;
@@ -22,6 +26,8 @@ router.route("/add").post((req, res) => {
   newUser.age = req.body.age;
   newUser.password_hash = req.body.password;
   newUser.status = -1;
+  newUser.pins = [];
+  newUser.boards = [];
 
   newUser
     .save()

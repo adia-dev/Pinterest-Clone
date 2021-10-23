@@ -7,15 +7,21 @@ const userSchema = new Schema(
       type: String,
       minlength: 3,
       trim: true,
-      required: true,
       unique: true,
     },
-    email: { type: String, unique: true },
+    email: {
+      type: String,
+      unique: true,
+      minlength: 6,
+      required: true,
+    },
     age: Number,
     password_hash: String,
     profile_picture: String,
     link: String,
     status: Number,
+    pins: Array,
+    boards: Array,
   },
   { timestamps: true }
 );

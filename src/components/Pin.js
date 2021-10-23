@@ -42,7 +42,7 @@ function Pin({ id, imageURL, name, largeDialogBox, boards, size }) {
       board: currentBoard,
     };
     await axios
-      .post("http://192.168.0.10:5000/pin/add", data)
+      .post("http://localhost:5000/pin/add", data)
       .then((response) => console.log(response))
       .catch((err) => console.log("Error: " + err));
   }
