@@ -1,3 +1,9 @@
+# Le projet a été créer sur : ACER E15 E5-575G 16' (1920x1080)
+
+## Ce projet ne s'affichera pas correctement sur certaines résolution d'écran. Essayez de jouez avec le zoom de votre navigateur (ctrl + ou ctrl -)
+
+### En general pour les ecran 14' 75% du zoom est une bonne estimation de comment le site est dans son état normal.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
