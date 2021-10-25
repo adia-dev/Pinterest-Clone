@@ -1,6 +1,6 @@
 # Le projet a été créer sur : ACER E15 E5-575G 16' (1920x1080)
 
-## Ce projet ne s'affichera pas correctement sur certaines résolution d'écran. Essayez de jouez avec le zoom de votre navigateur (ctrl + ou ctrl -)
+## Ce projet ne s'affiche pas correctement sur certaines résolutions d'écran. Essayez de jouer avec le zoom de votre navigateur (ctrl + ou ctrl -)
 
 ### En general pour les ecran 14' 75% du zoom est une bonne estimation de comment le site est dans son état normal.
 
