@@ -8,17 +8,19 @@ router.route("/").get((req, res) => {
     .catch((err) => res.status(400).json("Error: " + err));
 });
 
-router.route("/:id").delete((req, res) => {
+router.route("/delete/:id").delete((req, res) => {
   User.findByIdAndDelete(req.params.id)
     .then(() => res.json("User deleted!"))
     .catch((err) => res.status(400).json("Error: " + err));
 });
 
-router.route("/test").get((req, res) => {
-  res.json("eeh");
+router.route("/:id").get((req, res) => {
+  User.findById(req.params.id)
+    .then((user) => res.json(user))
+    .catch((err) => res.status(400).json("Error: " + err));
 });
 
-router.route("/create").post((req, res) => {
+router.route("/signup").post((req, res) => {
   const newUser = new User();
 
   newUser.username = req.body.username;

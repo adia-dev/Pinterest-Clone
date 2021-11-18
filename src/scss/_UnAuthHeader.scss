@@ -1,0 +1,58 @@
+.ua-header-container {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+}
+
+.ua-header-container__btn {
+  padding: 0.65rem 0.85rem;
+  border-radius: 25px;
+  background-color: #767676;
+}
+
+.ua-header-container__logo {
+  display: flex;
+  align-items: center;
+  color: red;
+  flex: 1;
+}
+
+.ua-header-container__logo h2 {
+  margin-left: 0.25rem;
+}
+
+.ua-header-container__links {
+  display: flex;
+  align-items: center;
+
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+.ua-header-container__links a {
+  text-decoration: none;
+  padding: 1rem;
+  color: black;
+}
+
+.ua-header-container__links a:hover {
+  text-decoration: underline;
+}
+
+.ua-header-container__auth {
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+  font-size: 1.15rem;
+  cursor: pointer;
+}
+
+.ua-header-container__auth__login {
+  color: white;
+  margin-right: 1rem;
+  background-color: red;
+}
+
+.ua-header-container__auth__signup {
+  background-color: #cecece;
+}

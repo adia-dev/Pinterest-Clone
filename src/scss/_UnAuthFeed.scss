@@ -1,0 +1,185 @@
+.green {
+  color: green;
+}
+
+.orange {
+  color: orange;
+  opacity: 0;
+  transform: translateY(100%);
+  animation: slide-in 0.85s 0.5s ease-out forwards;
+}
+
+.ua-feed-container {
+  width: 90vw;
+  margin: auto;
+  padding: 1rem;
+}
+
+.ua-feed-container__discovery {
+  font-size: 3rem;
+  width: 70%;
+  margin: auto;
+  text-align: center;
+
+  background-color: white;
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 5rem;
+  z-index: 20;
+}
+
+.ua-feed-container__discovery__sliders {
+  display: flex;
+  align-items: center;
+}
+
+.ua-feed-container__discovery__slider {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: rgb(189, 189, 189);
+  margin: 0.85rem 0.25rem;
+  cursor: pointer;
+}
+
+.ua-feed-container__discovery--color-fade {
+  transition: background-color 0.5s ease-out, color 0.5s ease-out;
+}
+
+.ua-feed-container__fade {
+  width: 100%;
+  height: 110vh;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 2;
+
+  pointer-events: none;
+
+  background: rgb(0, 0, 0);
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(176, 176, 176, 0) 65%,
+    rgba(255, 255, 255, 1) 100%
+  );
+}
+
+.ua-feed-container__down {
+  position: fixed;
+  left: 48%;
+  bottom: 25px;
+  transform: translate(-50%, -50%);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 3;
+
+  width: 50px;
+  height: 50px;
+  background-color: orange;
+  border-radius: 50%;
+  color: white;
+  cursor: pointer;
+}
+
+.ua-feed-container__pins {
+  display: flex;
+  flex-wrap: wrap;
+  position: absolute;
+  top: 250px;
+  z-index: -1;
+}
+
+.ua-feed-container__pin {
+  width: 215px;
+  height: 350px;
+  margin: 1rem 0.6rem;
+}
+
+.ua-feed-container__pin img {
+  object-fit: cover;
+  border-radius: 25px;
+  height: 100%;
+  width: 100%;
+  // transform: translateY(100%);
+  // animation: slide-in 0.5s 0s ease-out forwards;
+}
+
+//! Animations
+
+@keyframes slide-in {
+  0% {
+    opacity: 0%;
+  }
+  100% {
+    transform: translate(0, 0);
+    opacity: 100%;
+  }
+}
+
+@keyframes slide-down {
+  0% {
+  }
+  100% {
+    transform: translateY(25%);
+    opacity: 0%;
+  }
+}
+
+.mt-5 {
+  margin-top: 5rem;
+}
+
+.mt-10 {
+  margin-top: 10rem;
+}
+
+.mt-15 {
+  margin-top: 15rem;
+}
+
+.mt-20 {
+  margin-top: 20rem;
+}
+
+.ua-feed-container__pins__column {
+}
+
+.slide-up {
+  opacity: 0;
+  transform: translateY(10%);
+  animation: slide-in 1s 0s forwards;
+}
+
+.slide-down {
+  animation: slide-down 1s 0s forwards;
+}
+//! C'est MOCHE !!!! rend ca dynamique !!!
+
+.delay-1 {
+  animation-delay: 0.2s;
+}
+
+.delay-2 {
+  animation-delay: 0.4s;
+}
+
+.delay-3 {
+  animation-delay: 0.6s;
+}
+
+.delay-4 {
+  animation-delay: 0.8s;
+}
+
+.delay-5 {
+  animation-delay: 1s;
+}
+
+.delay-6 {
+  animation-delay: 1.2s;
+}
