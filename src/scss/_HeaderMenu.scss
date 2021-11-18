@@ -1,0 +1,76 @@
+.hm-container {
+  position: absolute;
+  //   height: 600px;
+  width: 300px;
+  background-color: white;
+  right: 15px;
+  top: 45px;
+  border-radius: 25px;
+  padding: 1rem;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
+  z-index: 20;
+}
+
+.hm-container img {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.hm-container__category {
+  font-size: 0.75rem;
+  margin-bottom: 0.65rem;
+  color: #333;
+  font-weight: 500;
+}
+
+.hm-container__account {
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 0.25rem;
+  border-radius: 15px;
+  margin-bottom: 0.85rem;
+}
+
+.hm-container__account:hover {
+  background-color: #eeeeee;
+}
+
+.hm-container__account__valid {
+  position: absolute;
+  right: 10px;
+  top: 25px;
+}
+
+.hm-container__account__infos {
+  margin-left: 1rem;
+}
+
+.hm-container__account__infos__username {
+  font-size: 1rem;
+}
+.hm-container__account__infos__plan,
+.hm-container__account__infos__email {
+  font-size: 0.78rem;
+  color: #8f8f8f;
+  font-weight: 500;
+}
+
+.hm-container__add-account {
+  padding-bottom: 1rem;
+}
+
+.hm-container__option {
+  padding: 0.35rem;
+  margin: 0.1rem 0;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.hm-container__option:hover {
+  background-color: #eeeeee;
+}

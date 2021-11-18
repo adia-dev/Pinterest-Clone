@@ -16,7 +16,7 @@ function Pin({ id, imageURL, name, largeDialogBox, boards, size }) {
   );
 
   useEffect(() => {
-    if (boards.length > 0) currentBoard = boards[0];
+    if (boards != undefined && boards.length > 0) setCurrentBoard(boards[0]);
   }, []);
 
   const onPinHover = () => {

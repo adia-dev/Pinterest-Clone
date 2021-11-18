@@ -1,0 +1,105 @@
+.hi-container {
+  position: absolute;
+  height: 800px;
+  width: 300px;
+  background-color: white;
+  right: 15px;
+  top: 45px;
+  border-radius: 25px;
+  padding: 1rem;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
+  z-index: 20;
+  overflow-y: scroll;
+}
+
+.hi-container::-webkit-scrollbar {
+  display: none;
+}
+
+.hi-container img {
+  height: 35px;
+  width: 35px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.hi-container__category {
+  font-size: 0.75rem;
+  margin-bottom: 0.65rem;
+  color: #333;
+  font-weight: 500;
+}
+
+.hi-container__account {
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 0.25rem;
+  border-radius: 15px;
+  margin-bottom: 0.85rem;
+}
+
+.hi-container__account__infos {
+  margin-left: 0.5rem;
+}
+
+.hi-container__account__infos__username {
+  font-size: 0.8rem;
+}
+.hi-container__account__infos__relationship {
+  font-size: 0.75rem;
+  color: #8f8f8f;
+  font-weight: 500;
+}
+
+.hi-container__account:hover {
+  background-color: #eeeeee;
+}
+
+.hi-container__header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.hi-container__header__title {
+  text-align: center;
+
+  flex: 1;
+}
+
+.hi-container__header__cta {
+  height: 35px;
+  width: 35px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 0.25rem;
+}
+
+.hi-container__header__cta:hover {
+  background-color: #eeeeee;
+}
+
+.hi-container__body__search {
+  display: flex;
+  align-items: center;
+  position: relative;
+  margin: 0.5rem 0;
+}
+
+.hi-container__body__search__icon {
+  left: 13px;
+  position: absolute;
+  color: #767676;
+}
+
+.hi-container__body__search input {
+  padding: 0.5rem 1.2rem;
+  width: 95%;
+  margin: auto;
+  border-radius: 25px;
+  outline: none;
+  border: 2px solid #eeeeee;
+}

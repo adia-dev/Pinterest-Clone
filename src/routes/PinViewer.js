@@ -11,33 +11,19 @@ import Pin from "../components/Pin";
 import { Link } from "react-router-dom";
 import FloatingActions from "../components/FloatingActions";
 
+import Unsplash from "../utils/Unsplash";
+
 function PinViewer() {
   const [pin, setPin] = useState({});
   const { id } = useParams();
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/pin/" + id)
-      .then((res) => setPin(res.data))
-      .catch((err) => {
-        console.log("Could not find a pin in the database," + err);
-
-        axios
-          .get(
-            `https://api.unsplash.com/photos/${id}?client_id=XeebjodiB1uOubNRQiQ8wnq-sKfYTAHLSANlHsviJ7Y`
-          )
-          .then((response) => {
-            const pin = {
-              id: response.data.id,
-              title: response.data.description,
-              url: response.data.urls.regular,
-            };
-
-            setPin(pin);
-            console.log(pin);
-          })
-          .catch((err) => console.log("Error: " + err));
-      });
+      .get(Unsplash.baseURL + "dragon")
+      .then((res) => {
+        console.log(res.data);
+      })
+      .catch((err) => console.log(err));
   }, []);
 
   return (
