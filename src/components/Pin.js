@@ -12,7 +12,7 @@ function Pin({ id, imageURL, name, largeDialogBox, boards, size }) {
   const [showCtas, setShowCtas] = useState(false);
   const [showSaveDialogBox, setShowSaveDialogBox] = useState(false);
   const [currentBoard, setCurrentBoard] = useState(
-    boards.length > 0 ? boards[0] : {}
+    boards != undefined && boards.length > 0 ? boards[0] : {}
   );
 
   useEffect(() => {
@@ -46,7 +46,7 @@ function Pin({ id, imageURL, name, largeDialogBox, boards, size }) {
       board: currentBoard,
     };
     await axios
-      .post("http://localhost:5000/pin/add", data)
+      .post("http://localhost:3001/pin/add", data)
       .then((response) => console.log(response))
       .catch((err) => console.log("Error: " + err));
   }
