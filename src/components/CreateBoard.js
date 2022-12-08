@@ -97,11 +97,10 @@ function CreateBoard({ setCreateBoardOpen }) {
             </div>
           </div>
           <input
-            className={`cb-container__body__form__submit ${
-              canSubmit &&
+            className={`cb-container__body__form__submit ${canSubmit &&
               !unavaiableName &&
               "cb-container__body__form__submit--enabled"
-            }`}
+              }`}
             type="submit"
             value="Créer"
             name="create"
